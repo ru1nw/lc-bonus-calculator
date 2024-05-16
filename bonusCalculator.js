@@ -1,8 +1,13 @@
-function otBonus(deadline = 0) {
+function otBonus() {
   let sold = Number(document.getElementById("sold").value);
   let quota = Number(document.getElementById("quota").value);
+  let deadline = Number(document.getElementById("deadline").value);
   if (sold < quota) {
     document.getElementById("bonus").innerHTML = 0;
+    return;
+  }
+  if (sold < 0 || quota < 0 || deadline < 0) {
+    document.getElementById("bonus").innerHTML = "sold, quota, and deadline must be larger than 0";
     return;
   }
   switch (deadline) {
