@@ -25,28 +25,28 @@
         <p>calculate overtime bonus given how much was sold and quota</p>
         <div class="input-fields-container">
           <label for="overtime-sold">sold</label>
-          <input id="overtime-sold" min="0" name="overtime-sold" type="number">
+          <input id="overtime-sold" min="0" name="overtime-sold" type="number" value="1913">
           <label for="overtime-quota">quota</label>
-          <input id="overtime-quota" min="0" name="overtime-quota" type="number">
+          <input id="overtime-quota" min="0" name="overtime-quota" type="number" value="1739">
           <label for="overtime-deadline">days until deadline</label>
-          <input id="overtime-deadline" max="3" min="0" name="overtime-deadline" type="number">
+          <input id="overtime-deadline" max="3" min="0" name="overtime-deadline" type="number" value="0">
         </div>
         <button name="overtime-calculate" onclick="otBonus()" type="button">calculate</button>
-        <p id="overtime-bonus">overtime bonus</p>
+        <p id="overtime-bonus">you get <b>19</b> credits of overtime bonus if you sold 1913 credits worth of scraps when the quota is 1739 credits, 0 day(s) before the deadline</p>
       </div>
       <div id="calc-desired-paycheck-container">
         <h2>how much should I sell?</h2>
         <p>calculate how much to sell given desired paycheck (including overtime bonus) and quota</p>
         <div class="input-fields-container">
           <label for="desired-paycheck">desired paycheck</label>
-          <input id="desired-paycheck" min="0" name="desired-paycheck" type="number">
+          <input id="desired-paycheck" min="0" name="desired-paycheck" type="number" value="1932">
           <label for="desired-paycheck-quota">quota</label>
-          <input id="desired-paycheck-quota" min="0" name="desired-paycheck-quota" type="number">
+          <input id="desired-paycheck-quota" min="0" name="desired-paycheck-quota" type="number" value="1739">
           <label for="desired-paycheck-deadline">days until deadline</label>
-          <input id="desired-paycheck-deadline" max="3" min="0" name="desired-paycheck-deadline" type="number">
+          <input id="desired-paycheck-deadline" max="3" min="0" name="desired-paycheck-deadline" type="number" value="0">
         </div>
         <button name="desired-paycheck-calculate" onclick="desiredPaycheck()" type="button">calculate</button>
-        <p id="desired-paycheck-sell">sell</p>
+        <p id="desired-paycheck-sell">you should sell <b>1913</b> credits worth of scraps if you want 1932 credits of total paycheck when the quota is 1739 credits, 0 day(s) before the deadline</p>
       </div>
     </div>
   </body>
