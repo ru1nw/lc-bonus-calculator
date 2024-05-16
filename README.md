@@ -6,7 +6,7 @@ calculator for lethal company overtime bonus
 
 - [X] add overtime calculator
   - [X] account for selling few days before deadline
-  - [ ] listener to input for quicker result
+  - [X] listener to input for quicker result
 - [ ] add function to calculate how much to sell to reach a desired overtime bonus
 - [X] add function to calculate how much to sell to reach a desired final amount
   - [ ] select items to buy
