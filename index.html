@@ -15,7 +15,22 @@
         font-weight: normal;
       }
       * {
+        color: lawngreen;
         font-family: "3270font", sans-serif, serif;
+      }
+      html {
+        background: black;
+      }
+      b {
+        font-size: 1.5em;
+      }
+      button, input {
+        accent-color: lawngreen;
+        background: gray;
+      }
+      input:disabled {
+        background: black;
+        color: green;
       }
       .calculator-container {
         display: flex;
@@ -29,7 +44,7 @@
         display: grid;
         gap: 10px;
         grid-template-columns: repeat(2, 1fr);
-        max-width: 75%;
+        max-width: 84%;
       }
       @media only screen and (max-width: 768px) {
         .calculator-container {
@@ -82,5 +97,6 @@
         <p id="desired-paycheck-sell">you should sell <b>1913</b> credits worth of scraps if you want 1932 credits of total paycheck when the quota is 1739 credits, 0 day(s) before the deadline</p>
       </div>
     </div>
+    <p style="margin-top: 3em;">equation from <a href="https://lethal.miraheze.org/wiki/Quota#Overtime_Bonus">lethal company wiki</a></p>
   </body>
 </html>
