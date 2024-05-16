@@ -44,10 +44,18 @@
       </div>
       <div id="calc-desired-paycheck-container">
         <h2>how much should I sell?</h2>
-        <p>calculate how much to sell given desired paycheck (including overtime bonus) and quota</p>
+        <p>calculate how much to sell given desired overtime bonus or paycheck (including overtime bonus) and quota</p>
         <div class="input-fields-container">
-          <label for="desired-paycheck">desired paycheck</label>
+          <div>
+            <input type="radio" name="desired-value" value="desired-paycheck">
+            <label for="desired-paycheck">desired paycheck</label>
+          </div>
           <input id="desired-paycheck" min="0" name="desired-paycheck" type="number" value="1932">
+          <div>
+            <input type="radio" name="desired-value" value="desired-paycheck">
+            <label for="desired-overtime-bonus">desired overtime bonus</label>
+          </div>
+          <input id="desired-overtime-bonus" min="0" name="desired-overtime-bonus" type="number" value="19">
           <label for="desired-paycheck-quota">quota</label>
           <input id="desired-paycheck-quota" min="0" name="desired-paycheck-quota" type="number" value="1739">
           <label for="desired-paycheck-deadline">days until deadline</label>
