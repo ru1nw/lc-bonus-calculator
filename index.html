@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+    <script type="text/javascript" src="bonusCalculator.js"></script>
+  </head>
   <body>
     <h1>lethal company overtime bonus calculator</h1>
     <label for="sold">sold</label>
     <input id="sold" min="0" name="sold" type="number">
     <label for="quota">quota</label>
     <input id="quota" min="0" name="quota" type="number">
-    <button name="calculate" type="">calculate</button>
+    <button name="calculate" onclick="otBonus()" type="">calculate</button>
     <p id="bonus">overtime bonus</p>
   </body>
 </html>
