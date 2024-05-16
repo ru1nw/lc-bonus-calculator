@@ -17,7 +17,7 @@ function otBonus() {
   let quota = Number(overtimeQuota.value);
   let deadline = Number(overtimeDeadline.value);
   if (sold < quota) {
-    document.getElementById("overtime-bonus").innerHTML = "you get 0 credits of overtime bonus if you sold " + sold.toString() + " credits worth of scraps when the quota is " + quota.toString() + "credits, " + deadline.toString() + " day(s) before the deadline";
+    document.getElementById("overtime-bonus").innerHTML = "you get 0 credits of overtime bonus if you sold " + sold.toString() + " credits worth of scraps when the quota is " + quota.toString() + " credits, " + deadline.toString() + " day(s) before the deadline";
     return;
   }
   if (sold < 0 || quota < 0 || deadline < 0) {
