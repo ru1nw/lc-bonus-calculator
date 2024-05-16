@@ -1,13 +1,31 @@
+const overtimeSold = document.getElementById("overtime-sold")
+const overtimeQuota = document.getElementById("overtime-quota")
+const overtimeDeadline = document.getElementById("overtime-deadline")
+const desiredPay = document.getElementById("desired-paycheck")
+const desiredPayQuota = document.getElementById("desired-paycheck-quota")
+const desiredPayDeadline = document.getElementById("desired-paycheck-deadline")
+
+overtimeSold.addEventListener("input", (e) => {otBonus();})
+overtimeQuota.addEventListener("input", (e) => {otBonus();})
+overtimeDeadline.addEventListener("input", (e) => {otBonus();})
+desiredPay.addEventListener("input", (e) => {desiredPaycheck();})
+desiredPayQuota.addEventListener("input", (e) => {desiredPaycheck();})
+desiredPayDeadline.addEventListener("input", (e) => {desiredPaycheck();})
+
 function otBonus() {
-  let sold = Number(document.getElementById("overtime-sold").value);
-  let quota = Number(document.getElementById("overtime-quota").value);
-  let deadline = Number(document.getElementById("overtime-deadline").value);
+  let sold = Number(overtimeSold.value);
+  let quota = Number(overtimeQuota.value);
+  let deadline = Number(overtimeDeadline.value);
   if (sold < quota) {
     document.getElementById("overtime-bonus").innerHTML = "you get 0 credits of overtime bonus if you sold " + sold.toString() + " credits worth of scraps when the quota is " + quota.toString() + "credits, " + deadline.toString() + " day(s) before the deadline";
     return;
   }
   if (sold < 0 || quota < 0 || deadline < 0) {
     document.getElementById("overtime-bonus").innerHTML = "sold, quota, and deadline must be larger than 0";
+    return;
+  }
+  if (deadline > 3) {
+    document.getElementById("desired-paycheck-sell").innerHTML = "deadline must be smaller than 3";
     return;
   }
   switch (deadline) {
@@ -29,15 +47,19 @@ function otBonus() {
 }
 
 function desiredPaycheck() {
-  let pay = Number(document.getElementById("desired-paycheck").value);
-  let quota = Number(document.getElementById("desired-paycheck-quota").value);
-  let deadline = Number(document.getElementById("desired-paycheck-deadline").value);
+  let pay = Number(desiredPay.value);
+  let quota = Number(desiredPayQuota.value);
+  let deadline = Number(desiredPayDeadline.value);
   if (pay <= quota) {
     document.getElementById("desired-paycheck-sell").innerHTML = "you should sell " + pay.toString() + " credits worth of scraps if you want " + pay.toString() + " credits of total paycheck when the quota is " + quota.toString() + "credits, " + deadline.toString() + " day(s) before the deadline";
     return;
   }
   if (pay < 0 || quota < 0 || deadline < 0) {
     document.getElementById("desired-paycheck-sell").innerHTML = "desired paycheck, quota, and deadline must be larger than 0";
+    return;
+  }
+  if (deadline > 3) {
+    document.getElementById("desired-paycheck-sell").innerHTML = "deadline must be smaller than 3";
     return;
   }
   switch (deadline) {
