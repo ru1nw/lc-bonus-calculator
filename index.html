@@ -2,16 +2,46 @@
 <html>
   <head>
     <script type="text/javascript" src="bonusCalculator.js"></script>
+    <style>
+      .input-fields-container {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 75%;
+      }
+    </style>
   </head>
   <body>
     <h1>lethal company overtime bonus calculator</h1>
-    <label for="sold">sold</label>
-    <input id="sold" min="0" name="sold" type="number">
-    <label for="quota">quota</label>
-    <input id="quota" min="0" name="quota" type="number">
-    <label for="deadline">days until deadline</label>
-    <input id="deadline" max="3" min="0" name="deadline" type="number">
-    <button name="calculate" onclick="otBonus()" type="button">calculate</button>
-    <p id="bonus">overtime bonus</p>
+    <div style="display: flex; justify-content: space-around; max-width: 100%;">
+      <div id="calc-overtime-container">
+        <h2>what's the overtime bonus?</h2>
+        <p>calculate overtime bonus given how much was sold and quota</p>
+        <div class="input-fields-container">
+          <label for="overtime-sold">sold</label>
+          <input id="overtime-sold" min="0" name="overtime-sold" type="number">
+          <label for="overtime-quota">quota</label>
+          <input id="overtime-quota" min="0" name="overtime-quota" type="number">
+          <label for="overtime-deadline">days until deadline</label>
+          <input id="overtime-deadline" max="3" min="0" name="overtime-deadline" type="number">
+        </div>
+        <button name="overtime-calculate" onclick="otBonus()" type="button">calculate</button>
+        <p id="bonus">overtime bonus</p>
+      </div>
+      <div id="calc-desired-paycheck-container">
+        <h2>how much should I sell?</h2>
+        <p>calculate how much to sell given desired paycheck (including overtime bonus) and quota</p>
+        <div class="input-fields-container">
+          <label for="desired-paycheck">desired paycheck</label>
+          <input id="desired-paycheck" min="0" name="desired-paycheck" type="number">
+          <label for="desired-paycheck-quota">quota</label>
+          <input id="desired-paycheck-quota" min="0" name="desired-paycheck-quota" type="number">
+          <label for="desired-paycheck-deadline">days until deadline</label>
+          <input id="desired-paycheck-deadline" max="3" min="0" name="desired-paycheck-deadline" type="number">
+        </div>
+        <button name="desired-paycheck-calculate" onclick="" type="button">calculate</button>
+        <p id="bonus">sell</p>
+      </div>
+    </div>
   </body>
 </html>
