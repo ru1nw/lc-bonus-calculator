@@ -8,28 +8,37 @@ const desiredValueOt = document.getElementById("desired-value-overtime-bonus")
 const desiredPayQuota = document.getElementById("desired-paycheck-quota")
 const desiredPayDeadline = document.getElementById("desired-paycheck-deadline")
 
-overtimeSold.addEventListener("input", (e) => {otBonus();})
-overtimeQuota.addEventListener("input", (e) => {otBonus();})
-overtimeDeadline.addEventListener("input", (e) => {otBonus();})
-desiredPay.addEventListener("input", (e) => {desiredPaycheck();})
+overtimeSold.addEventListener("input", (e) => {otBonus(false);})
+overtimeQuota.addEventListener("input", (e) => {otBonus(false);})
+overtimeDeadline.addEventListener("input", (e) => {otBonus(false);})
+desiredPay.addEventListener("input", (e) => {desiredPaycheck(false);})
 desiredValuePay.addEventListener("click", desiredValueFocus)
-desiredOt.addEventListener("input", (e) => {desiredPaycheck();})
+desiredOt.addEventListener("input", (e) => {desiredPaycheck(false);})
 desiredValueOt.addEventListener("click", desiredValueFocus)
-desiredPayQuota.addEventListener("input", (e) => {desiredPaycheck();})
-desiredPayDeadline.addEventListener("input", (e) => {desiredPaycheck();})
+desiredPayQuota.addEventListener("input", (e) => {desiredPaycheck(false);})
+desiredPayDeadline.addEventListener("input", (e) => {desiredPaycheck(false);})
 
-function otBonus() {
+function otBonus(submitted=true) {
   if (!/^\d+$/.test(overtimeSold.value)) {
     document.getElementById("overtime-bonus").innerHTML = "enter value for scraps sold";
+    if (submitted) overtimeSold.style.background = "red";
     return;
+  } else {
+    overtimeSold.style.background = "gray";
   }
   if (!/^\d+$/.test(overtimeQuota.value)) {
     document.getElementById("overtime-bonus").innerHTML = "enter quota";
+    if (submitted) overtimeQuota.style.background = "red";
     return;
+  } else {
+    overtimeQuota.style.background = "gray";
   }
   if (!/^\d+$/.test(overtimeDeadline.value)) {
     document.getElementById("overtime-bonus").innerHTML = "enter days until deadline";
+    if (submitted) overtimeDeadline.style.background = "red";
     return;
+  } else {
+    overtimeDeadline.style.background = "gray";
   }
   let sold = Number(overtimeSold.value);
   let quota = Number(overtimeQuota.value);
@@ -64,18 +73,27 @@ function otBonus() {
   document.getElementById("overtime-bonus").innerHTML = "you get <b>" + ((ot > 0) ? Math.floor(ot).toString() : "0") + "</b> credits of overtime bonus if you sold " + overtimeSold.value + " credits worth of scraps when the quota is " + overtimeQuota.value + " credits, " + overtimeDeadline.value + " day(s) before the deadline";
 }
 
-function desiredPaycheck() {
+function desiredPaycheck(submitted=true) {
   if (!/^\d+$/.test(desiredPay.value)) {
     document.getElementById("desired-paycheck-sell").innerHTML = "enter desired paycheck";
+    if (submitted) desiredPay.style.background = "red";
     return;
+  } else {
+    desiredPay.style.background = "gray";
   }
   if (!/^\d+$/.test(desiredPayQuota.value)) {
     document.getElementById("desired-paycheck-sell").innerHTML = "enter quota";
+    if (submitted) desiredPayQuota.style.background = "red";
     return;
+  } else {
+    desiredPayQuota.style.background = "gray";
   }
   if (!/^\d+$/.test(desiredPayDeadline.value)) {
     document.getElementById("desired-paycheck-sell").innerHTML = "enter days until deadline";
+    if (submitted) desiredPayDeadline.style.background = "red";
     return;
+  } else {
+    desiredPayDeadline.style.background = "gray";
   }
   let quota = Number(desiredPayQuota.value);
   let deadline = Number(desiredPayDeadline.value);
