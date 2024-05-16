@@ -8,19 +8,30 @@
     <meta name="keywords" content="lethal company, lethal company overtime,lethal company bonus,lethal company scrap value,lethal company paycheck">
     <script type="text/javascript" src="bonusCalculator.js" defer></script>
     <style>
+      * {
+        font-family: sans-serif, serif;
+      }
       .calculator-container {
         display: flex;
         justify-content: space-around;
         max-width: 100%;
       }
       .calculator-container > div {
-        max-width: 40%;
+        width: 40%;
       }
       .input-fields-container {
         display: grid;
         gap: 10px;
         grid-template-columns: repeat(2, 1fr);
         max-width: 75%;
+      }
+      @media only screen and (max-width: 768px) {
+        .calculator-container {
+          display: initial;
+        }
+        .calculator-container > div {
+          width: unset;
+        }
       }
     </style>
     <title>lc bonus calculator</title>
@@ -47,13 +58,13 @@
         <p>calculate how much to sell given desired overtime bonus or paycheck (including overtime bonus) and quota</p>
         <div class="input-fields-container">
           <div>
-            <input id="desired-value-paycheck" name="desired-value" type="radio" value="desired-paycheck">
-            <label for="desired-paycheck">desired paycheck</label>
+            <input checked id="desired-value-paycheck" name="desired-value" type="radio" value="desired-paycheck">
+            <label for="desired-value-paycheck">desired paycheck</label>
           </div>
           <input id="desired-paycheck" min="0" name="desired-paycheck" type="number" value="1932">
           <div>
             <input id="desired-value-overtime-bonus" name="desired-value" type="radio" value="desired-overtime-bonus">
-            <label for="desired-overtime-bonus">desired overtime bonus</label>
+            <label for="desired-value-overtime-bonus">desired overtime bonus</label>
           </div>
           <input id="desired-overtime-bonus" min="0" name="desired-overtime-bonus" type="number" value="19">
           <label for="desired-paycheck-quota">quota</label>
