@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "3270font";
+  src: url("3270_fonts_d916271/3270-Regular.otf");
+  font-style: normal;
+  font-weight: normal;
+}
+* {
+  color: lawngreen;
+  font-family: "3270font", sans-serif, serif;
+}
+html {
+  background: black;
+}
+b {
+  font-size: 1.5em;
+}
+button, input {
+  accent-color: lawngreen;
+  background: gray;
+}
+input:disabled {
+  background: black;
+  color: green;
+}
+.calculator-container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 100%;
+}
+.calculator-container > div {
+  margin-top: 2em;
+  width: 40%;
+}
+.input-fields-container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 84%;
+}
+#desired-items-container {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+#desired-items-container > * {
+  display: none;
+  width: 20rem;
+}
+#desired-items-container input {
+  width: 4rem;
+}
+@media only screen and (max-width: 768px) {
+  .calculator-container {
+    display: initial;
+  }
+  .calculator-container > div {
+    width: unset;
+  }
+}

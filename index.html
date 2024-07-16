@@ -9,55 +9,7 @@
     <meta name="keywords" content="lethal company, lethal company overtime,lethal company bonus,lethal company scrap value,lethal company paycheck">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <script type="text/javascript" src="bonusCalculator.js" defer></script>
-    <style>
-      @font-face {
-        font-family: "3270font";
-        src: url("3270_fonts_d916271/3270-Regular.otf");
-        font-style: normal;
-        font-weight: normal;
-      }
-      * {
-        color: lawngreen;
-        font-family: "3270font", sans-serif, serif;
-      }
-      html {
-        background: black;
-      }
-      b {
-        font-size: 1.5em;
-      }
-      button, input {
-        accent-color: lawngreen;
-        background: gray;
-      }
-      input:disabled {
-        background: black;
-        color: green;
-      }
-      .calculator-container {
-        display: flex;
-        justify-content: space-around;
-        max-width: 100%;
-      }
-      .calculator-container > div {
-        margin-top: 2em;
-        width: 40%;
-      }
-      .input-fields-container {
-        display: grid;
-        gap: 10px;
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 84%;
-      }
-      @media only screen and (max-width: 768px) {
-        .calculator-container {
-          display: initial;
-        }
-        .calculator-container > div {
-          width: unset;
-        }
-      }
-    </style>
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <title>lc bonus calculator</title>
   </head>
   <body>
@@ -76,7 +28,7 @@
           <input id="overtime-deadline" max="3" min="0" name="overtime-deadline" type="number" value="0">
         </div>
         <button name="overtime-calculate" onclick="otBonus()" type="button">calculate</button>
-        <p id="overtime-bonus">you get <b>19</b> credits of overtime bonus if you sold 1913 credits worth of scraps when the quota is 1739 credits, 0 day(s) before the deadline</p>
+        <p id="overtime-bonus">you get <b>▮19</b> of overtime bonus if you sold ▮1913 worth of scraps when the quota is ▮1739, 0 day(s) before the deadline</p>
       </div>
       <div id="calc-desired-paycheck-container">
         <h2>how much should I sell?</h2>
@@ -93,13 +45,177 @@
             <label for="desired-value-overtime-bonus">desired overtime bonus</label>
           </div>
           <input disabled id="desired-overtime-bonus" min="0" name="desired-overtime-bonus" type="number" value="19">
+          <div>
+            <input id="desired-value-items" name="desired-value" type="radio" value="desired-items">
+            <label for="desired-value-items">desired items</label>
+          </div>
+          <div></div>
+          <div id="desired-items-container">
+            <fieldset>
+              <legend>store</legend>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Walkie-talkie</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Flashlight</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Shovel</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Lockpicker</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Pro-flashlight</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Stun grenade</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Boombox</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">TZP-Inhalent</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Zap gun</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Jetpack</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Extension ladder</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Radar-booster</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Spray paint</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Weed killer</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Cruiser</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="9999" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Survival kit</span>
+            </fieldset>
+            <fieldset>
+              <legend>ship upgrades</legend>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Loud horn</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Signal Translator</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Teleporter</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Inverse Teleporter</span>
+            </fieldset>
+            <fieldset>
+              <legend>ship decor</legend>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Cozy lights</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Purple suit</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Green suit</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Pajama suit</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Bee suit</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Bunny suit</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Goldfish</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Jack-o-Lantern</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Television</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Record player</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Romantic table</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Shower</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Table</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Toilet</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Welcome mat</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Plushie pajama man</span><br>
+              <button class="item-count-button item-count-button-minus">-</button>
+              <input class="item-count" max="1" min="0" type="number" value="0" />
+              <button class="item-count-button item-count-button-plus">+</button>
+              <span class="item-name">Disco ball</span>
+            </fieldset>
+          </div>
           <label for="desired-paycheck-quota">quota</label>
           <input id="desired-paycheck-quota" min="0" name="desired-paycheck-quota" type="number" value="1739">
           <label for="desired-paycheck-deadline">days until deadline</label>
           <input id="desired-paycheck-deadline" max="3" min="0" name="desired-paycheck-deadline" type="number" value="0">
         </div>
         <button name="desired-paycheck-calculate" onclick="desiredPaycheck()" type="button">calculate</button>
-        <p id="desired-paycheck-sell">you should sell <b>1913</b> credits worth of scraps if you want 1932 credits of total paycheck when the quota is 1739 credits, 0 day(s) before the deadline</p>
+        <p id="desired-paycheck-sell">you should sell <b>▮1913</b> worth of scraps if you want ▮1932 of total paycheck when the quota is ▮1739, 0 day(s) before the deadline</p>
       </div>
     </div>
     <p style="margin-top: 3em;">equation from <a href="https://lethal.miraheze.org/wiki/Quota#Overtime_Bonus">lethal company wiki</a></p>
