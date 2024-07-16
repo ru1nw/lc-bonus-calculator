@@ -15,5 +15,5 @@ calculator for lethal company overtime bonus
 - [X] add function to calculate how much to sell to reach a desired final amount
   - [X] select items to buy
   - [ ] account for items on sale
-  - [ ] select destination moon
+  - [X] select paid moons
   - [ ] account for deaths
